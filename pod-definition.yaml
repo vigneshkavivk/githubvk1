@@ -14,7 +14,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   labels:
-    app: k8s-agent
+    app: jenkins-agent
 spec:
   containers:
     - name: build-container
