@@ -18,7 +18,7 @@ metadata:
 spec:
   containers:
     - name: build-container
-      image: maven:3.8.1-jdk-11  # Use a Maven image to avoid installing Maven manually
+      image: maven:3.8.1-jdk-11  
       command:
         - cat
       tty: true
@@ -26,7 +26,7 @@ spec:
         - name: maven-cache
           mountPath: /root/.m2
     - name: kubectl-container
-      image: alpine/k8s:latest
+      image: alpine:latest
       command:
         - cat
       tty: true
