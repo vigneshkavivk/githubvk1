@@ -9,3 +9,28 @@ spec:
       image: nginx:latest
       ports:
         - containerPort: 80
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: k8s-agent
+spec:
+  containers:
+    - name: build-container
+      image: maven:3.8.1-jdk-11  # Use a Maven image to avoid installing Maven manually
+      command:
+        - cat
+      tty: true
+      volumeMounts:
+        - name: maven-cache
+          mountPath: /root/.m2
+    - name: kubectl-container
+      image: alpine/k8s:latest
+      command:
+        - cat
+      tty: true
+  volumes:
+    - name: maven-cache
+      emptyDir: {}
+
