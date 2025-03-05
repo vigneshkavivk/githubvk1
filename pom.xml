@@ -1,0 +1,22 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId><span style="color:red; font-size:20px;">com.example</span></groupId>
+    <artifactId><span style="color:blue; font-size:20px;">my-app</span></artifactId>
+    <version><span style="color:green; font-size:20px;">1.0-SNAPSHOT</span></version>
+    <packaging><span style="color:purple; font-size:20px;">jar</span></packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId><span style="color:orange; font-size:20px;">junit</span></groupId>
+            <artifactId><span style="color:brown; font-size:20px;">junit</span></artifactId>
+            <version><span style="color:cyan; font-size:20px;">4.13.2</span></version>
+            <scope><span style="color:pink; font-size:20px;">test</span></scope>
+        </dependency>
+    </dependencies>
+
+</project>
