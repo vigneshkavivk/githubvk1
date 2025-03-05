@@ -5,17 +5,17 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId><span style="color:red; font-size:20px;">com.example</span></groupId>
-    <artifactId><span style="color:blue; font-size:20px;">my-app</span></artifactId>
-    <version><span style="color:green; font-size:20px;">1.0-SNAPSHOT</span></version>
-    <packaging><span style="color:purple; font-size:20px;">jar</span></packaging>
+    <groupId>com.example</groupId>
+    <artifactId>my-app</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
-            <groupId><span style="color:orange; font-size:20px;">junit</span></groupId>
-            <artifactId><span style="color:brown; font-size:20px;">junit</span></artifactId>
-            <version><span style="color:cyan; font-size:20px;">4.13.2</span></version>
-            <scope><span style="color:pink; font-size:20px;">test</span></scope>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
