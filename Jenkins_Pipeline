@@ -1,0 +1,38 @@
+pipeline {
+    agent {label'new'}
+    
+    tools {
+        jdk 'jdk-17'
+        maven 'maven3'
+    }
+    
+    stages {
+        stage('GIT CHECKOUT') {
+            steps {
+               git branch: 'main', url: 'https://github.com/vigneshkavivk/githubvk1.git'
+            }
+        }
+    
+                stage('MAVEN COMPILE') {
+            steps {
+                sh "mvn compile"
+            }
+        }
+        
+        stage('MAVEN TEST') {
+            steps {
+                sh "mvn test"
+            }
+        }
+        
+        stage('TRIVY FILESYSTEM SCAN') {
+            steps {
+                sh '''
+                trivy fs --exit-code 1 --severity HIGH,CRITICAL .
+                trivy fs --exit-code 1 --severity HIGH,CRITICAL pom.xml
+                trivy fs --format table -o trivy-fs-report.html .
+                '''
+            }
+        }
+    }
+}
