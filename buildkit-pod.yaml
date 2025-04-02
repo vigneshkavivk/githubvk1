@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: buildkit-pod
+  namespace: devops-tools
+  labels:
+    jenkins-agent: "buildkit-agent"
+spec:
+  containers:
+  - name: jnlp
+    image: jenkins/inbound-agent:latest
+    args: ['$(JENKINS_SECRET)', '$(JENKINS_AGENT_NAME)']
+
+  - name: buildkit
+    image: moby/buildkit:latest
+    securityContext:
+      privileged: true  # ✅ Required for BuildKit
+    command:
+      - "buildkitd"
+    args:
+      - "--allow-insecure-entitlement=security.insecure"  # ✅ Correct argument format
+      - "--oci-worker=true"
+    volumeMounts:
+      - name: buildkit-socket
+        mountPath: /run/buildkit
+
+  volumes:
+    - name: buildkit-socket
+      emptyDir: {}
+
+  restartPolicy: Never
